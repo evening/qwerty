@@ -10,15 +10,15 @@ def find_intersections(word):
     int_count = 0
 
     # does going back to an old letter count as an intersection?
-    # if len(set(ignore_points)) != len(ignore_points):
-    #     return float("inf")
+    if len(set(ignore_points)) != len(ignore_points):
+        return float("inf")
 
     for i in range(len(response) - 1):
         l = LineString([response[i][1], response[i + 1][1]])
 
         # do duplicated letters count as an intersection?
-        # if l.length == 0.0:
-        #     return float("inf")
+        if l.length == 0.0:
+            return float("inf")
 
         for line in lines:
             intersection = line.intersection(l)
